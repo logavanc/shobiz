@@ -1,0 +1,2 @@
+nimTitle	shobiz	shobiz.html	module src/shobiz		0
+nim	add	shobiz.html#add,int,int	proc add(x, y: int): int		5
