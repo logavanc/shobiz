@@ -1,7 +1,6 @@
-import times
 import json
-
-import pretty
+import options
+import times
 
 type
   ShoLevel {.pure.} = enum
@@ -24,21 +23,56 @@ proc timestamp(): string =
     dt = dt.utc()
   dt.format(SHO_TIMEFMT)
 
-proc sho(msg: string, level: ShoLevel, data: JsonNode) =
-  var node = %{
-    "timestamp": %timestamp(),
-    "level": %level,
-    "message": %msg,
-    "data": data
-  }
-  print(node)
+proc sho(
+  msg: string,
+  level: ShoLevel,
+  exType: Option[string] = none(string),
+  data: Option[JsonNode] = none(JsonNode)) =
+  let node = newJObject()
+  node["timestamp"] = %timestamp()
+  node["level"] = %level
+  if exType.isSome():
+    node["type"] = %exType.get()
+  node["message"] = %msg
+  if data.isSome():
+    node["data"] = data.get
+  SHO_OUTPUT.writeLine(
+    if SHO_PRETTY: node.pretty(indent = 4)
+    else: $node)
 
-proc shoErr*(err: ref Exception, data: JsonNode = newJNull()) =
-  sho(err.msg, ShoLevel.Error, data)
+proc shoExc*(err: ref Exception) =
+  sho(
+    msg = err.msg,
+    level = ShoLevel.Error,
+    exType = some($err.name))
 
-proc shoMsg*(msg: string, data: JsonNode = newJNull()) =
-  sho(msg, ShoLevel.Message, data)
+proc shoExc*(err: ref Exception, data: JsonNode) =
+  sho(
+    msg = err.msg,
+    level = ShoLevel.Error,
+    exType = some($err.name),
+    data = some(data))
 
-proc shoDbg*(msg: string, data: JsonNode = newJNull()) =
+proc shoMsg*(msg: string) =
+  sho(
+    msg = msg,
+    level = ShoLevel.Message)
+
+proc shoMsg*(msg: string, data: JsonNode) =
+  sho(
+    msg = msg,
+    level = ShoLevel.Message,
+    data = some(data))
+
+proc shoDbg*(msg: string) =
   if SHO_VERBOSE:
-    sho(msg, ShoLevel.Verbose, data)
+    sho(
+      msg = msg,
+      level = ShoLevel.Verbose)
+
+proc shoDbg*(msg: string, data: JsonNode) =
+  if SHO_VERBOSE:
+    sho(
+      msg = msg,
+      level = ShoLevel.Verbose,
+      data = some(data))
