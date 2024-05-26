@@ -1,2 +1,15 @@
 nimTitle	shobiz	shobiz.html	module src/shobiz		0
-nim	add	shobiz.html#add,int,int	proc add(x, y: int): int		5
+nim	SHO_PRETTY	shobiz.html#SHO_PRETTY	var SHO_PRETTY		12
+nim	SHO_VERBOSE	shobiz.html#SHO_VERBOSE	var SHO_VERBOSE		13
+nim	SHO_OUTPUT	shobiz.html#SHO_OUTPUT	var SHO_OUTPUT		14
+nim	SHO_USEUTC	shobiz.html#SHO_USEUTC	var SHO_USEUTC		17
+nim	SHO_TIMEFMT	shobiz.html#SHO_TIMEFMT	var SHO_TIMEFMT		18
+nim	shoExc	shobiz.html#shoExc,ref.Exception	proc shoExc(err: ref Exception)		43
+nim	shoExc	shobiz.html#shoExc,ref.Exception,JsonNode	proc shoExc(err: ref Exception; data: JsonNode)		49
+nim	shoMsg	shobiz.html#shoMsg,string	proc shoMsg(msg: string)		56
+nim	shoMsg	shobiz.html#shoMsg,string,JsonNode	proc shoMsg(msg: string; data: JsonNode)		61
+nim	shoDbg	shobiz.html#shoDbg,string	proc shoDbg(msg: string)		67
+nim	shoDbg	shobiz.html#shoDbg,string,JsonNode	proc shoDbg(msg: string; data: JsonNode)		73
+nimgrp	shomsg	shobiz.html#shoMsg-procs-all	proc		56
+nimgrp	shodbg	shobiz.html#shoDbg-procs-all	proc		67
+nimgrp	shoexc	shobiz.html#shoExc-procs-all	proc		43
