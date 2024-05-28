@@ -41,6 +41,22 @@ proc sho(
     else: $node)
 
 proc shoExc*(err: ref Exception) =
+  ## Show an exception message.
+  ##
+  ## Output example:
+  ## ```json
+  ## {"timestamp":"2024-05-26T06:18:31.966Z","level":"Error","type":"KeyError","message":"error"}
+  ## ```
+  ##
+  ## Pretty output example:
+  ## ```json
+  ## {
+  ##     "timestamp": "2024-05-26T06:18:31.968Z",
+  ##     "level": "Error",
+  ##     "type": "KeyError",
+  ##     "message": "error"
+  ## }
+  ## ```
   sho(
     msg = err.msg,
     level = ShoLevel.Error,
