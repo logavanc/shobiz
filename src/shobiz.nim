@@ -1,21 +1,29 @@
+## Sho is a simple structured console output library, meant to be used with
+## minimal runtime configuration (e.g. `--verbose`/`--debug` flags).
+##
+## Debug messages are only shown when the `SHO_VERBOSE` flag is set.
+## The output can be pretty printed by setting the `SHO_PRETTY` flag for easier
+## reading, but by default, the output is minified single-line JSON which can be
+## easily parsed by other tools (e.g. `jq`) or piped to a file (e.g.
+## `> file.jsonl`).
 import json
 import options
 import times
 
 type
   ShoLevel {.pure.} = enum
-    Error = "Error"
+    Error   = "Error"
     Message = "Message"
-    Verbose = "Verbose"
+    Debug   = "Debug"
 
 var
-  SHO_PRETTY* = false ## pretty print the output
-  SHO_VERBOSE* = false ## print debug information
-  SHO_OUTPUT* = stdout ## where to write the output
+  SHO_PRETTY*  = false ## Pretty print the output.
+  SHO_VERBOSE* = false ## Print debug information.
+  SHO_OUTPUT*  = stdout ## Where to write the output.
 
 var
-  SHO_USEUTC* = false ## use UTC time
-  SHO_TIMEFMT* = "yyyy-MM-dd'T'HH:mm:ss'.'fffzzz" ## time format (default ISO8601)
+  SHO_USEUTC*  = false ## Use UTC time.
+  SHO_TIMEFMT* = "yyyy-MM-dd'T'HH:mm:ss'.'fffzzz" ## Time format (default ISO8601).
 
 proc timestamp(): string =
   var dt = now()
@@ -42,16 +50,17 @@ proc sho(
 
 proc shoExc*(err: ref Exception) =
   ## Show an exception message.
-  ##
-  ## Output example:
-  ## ```json
-  ## {"timestamp":"2024-05-26T06:18:31.966Z","level":"Error","type":"KeyError","message":"error"}
-  ## ```
-  ##
-  ## Pretty output example:
+  runnableExamples:
+    SHO_PRETTY = true
+
+    try:
+      raise newException(KeyError, "error")
+    except Exception as err:
+      err.shoExc()
+  ## Produces:
   ## ```json
   ## {
-  ##     "timestamp": "2024-05-26T06:18:31.968Z",
+  ##     "timestamp": "2024-05-27T21:57:43.862-07:00",
   ##     "level": "Error",
   ##     "type": "KeyError",
   ##     "message": "error"
@@ -63,6 +72,28 @@ proc shoExc*(err: ref Exception) =
     exType = some($err.name))
 
 proc shoExc*(err: ref Exception, data: JsonNode) =
+  ## Show an exception message with additional data.
+  runnableExamples:
+    import json
+
+    SHO_PRETTY = true
+
+    try:
+      raise newException(KeyError, "error")
+    except Exception as err:
+      err.shoExc(%*{"key": "value"})
+  ## Produces:
+  ## ```json
+  ## {
+  ##     "timestamp": "2024-05-27T21:57:43.862-07:00",
+  ##     "level": "Error",
+  ##     "type": "KeyError",
+  ##     "message": "error",
+  ##     "data": {
+  ##         "key": "value"
+  ##     }
+  ## }
+  ## ```
   sho(
     msg = err.msg,
     level = ShoLevel.Error,
@@ -70,25 +101,91 @@ proc shoExc*(err: ref Exception, data: JsonNode) =
     data = some(data))
 
 proc shoMsg*(msg: string) =
+  ## Show a message.
+  runnableExamples:
+    SHO_PRETTY = true
+
+    "Hello, World!".shoMsg()
+  ## Produces:
+  ## ```json
+  ## {
+  ##     "timestamp": "2024-05-27T21:57:43.862-07:00",
+  ##     "level": "Message",
+  ##     "message": "Hello, World!"
+  ## }
+  ## ```
   sho(
     msg = msg,
     level = ShoLevel.Message)
 
 proc shoMsg*(msg: string, data: JsonNode) =
+  ## Show a message with additional data.
+  runnableExamples:
+    import json
+
+    SHO_PRETTY = true
+
+    "Hello, World!".shoMsg(%*{"key": "value"})
+  ## Produces:
+  ## ```json
+  ## {
+  ##     "timestamp": "2024-05-27T21:57:43.862-07:00",
+  ##     "level": "Message",
+  ##     "message": "Hello, World!",
+  ##     "data": {
+  ##         "key": "value"
+  ##     }
+  ## }
+  ## ```
   sho(
     msg = msg,
     level = ShoLevel.Message,
     data = some(data))
 
 proc shoDbg*(msg: string) =
+  ## Show a debug message.
+  ## This message will only be shown if the `SHO_VERBOSE` flag is set.
+  runnableExamples:
+    SHO_PRETTY = true
+    SHO_VERBOSE = true
+
+    "Detailed message.".shoDbg()
+  ## Produces:
+  ## ```json
+  ## {
+  ##     "timestamp": "2024-05-27T21:57:43.862-07:00",
+  ##     "level": "Debug",
+  ##     "message": "Detailed message."
+  ## }
+  ## ```
   if SHO_VERBOSE:
     sho(
       msg = msg,
-      level = ShoLevel.Verbose)
+      level = ShoLevel.Debug)
 
 proc shoDbg*(msg: string, data: JsonNode) =
+  ## Show a debug message with additional data.
+  ## This message will only be shown if the `SHO_VERBOSE` flag is set.
+  runnableExamples:
+    import json
+
+    SHO_PRETTY = true
+    SHO_VERBOSE = true
+
+    "Detailed message.".shoDbg(%*{"key": "value"})
+  ## Produces:
+  ## ```json
+  ## {
+  ##     "timestamp": "2024-05-27T21:57:43.862-07:00",
+  ##     "level": "Debug",
+  ##     "message": "Detailed message.",
+  ##     "data": {
+  ##         "key": "value"
+  ##     }
+  ## }
+  ## ```
   if SHO_VERBOSE:
     sho(
       msg = msg,
-      level = ShoLevel.Verbose,
+      level = ShoLevel.Debug,
       data = some(data))
