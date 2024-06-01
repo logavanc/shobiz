@@ -1,7 +1,7 @@
 ## Sho is a simple structured console output library, meant to be used with
-## minimal runtime configuration (e.g. `--verbose`/`--debug` flags).
+## minimal runtime configuration (e.g. `--debug` and `--pretty` flags).
 ##
-## Debug messages are only shown when the `SHO_VERBOSE` flag is set.
+## Debug messages are only shown when the `SHO_DEBUG` flag is set.
 ## The output can be pretty printed by setting the `SHO_PRETTY` flag for easier
 ## reading, but by default, the output is minified single-line JSON which can be
 ## easily parsed by other tools (e.g. `jq`) or piped to a file (e.g.
@@ -17,12 +17,12 @@ type
     Debug   = "Debug"
 
 var
-  SHO_PRETTY*  = false ## Pretty print the output.
-  SHO_VERBOSE* = false ## Print debug information.
+  SHO_PRETTY*  = false  ## Pretty print the output.
+  SHO_DEBUG*   = false  ## Print debug information.
   SHO_OUTPUT*  = stdout ## Where to write the output.
 
 var
-  SHO_USEUTC*  = false ## Use UTC time.
+  SHO_USEUTC*  = false                            ## Use UTC time.
   SHO_TIMEFMT* = "yyyy-MM-dd'T'HH:mm:ss'.'fffzzz" ## Time format (default ISO8601).
 
 proc timestamp(): string =
@@ -144,10 +144,10 @@ proc shoMsg*(msg: string, data: JsonNode) =
 
 proc shoDbg*(msg: string) =
   ## Show a debug message.
-  ## This message will only be shown if the `SHO_VERBOSE` flag is set.
+  ## This message will only be shown if the `SHO_DEBUG` flag is set.
   runnableExamples:
     SHO_PRETTY = true
-    SHO_VERBOSE = true
+    SHO_DEBUG = true
 
     "Detailed message.".shoDbg()
   ## Produces:
@@ -158,19 +158,19 @@ proc shoDbg*(msg: string) =
   ##     "message": "Detailed message."
   ## }
   ## ```
-  if SHO_VERBOSE:
+  if SHO_DEBUG:
     sho(
       msg = msg,
       level = ShoLevel.Debug)
 
 proc shoDbg*(msg: string, data: JsonNode) =
   ## Show a debug message with additional data.
-  ## This message will only be shown if the `SHO_VERBOSE` flag is set.
+  ## This message will only be shown if the `SHO_DEBUG` flag is set.
   runnableExamples:
     import json
 
     SHO_PRETTY = true
-    SHO_VERBOSE = true
+    SHO_DEBUG = true
 
     "Detailed message.".shoDbg(%*{"key": "value"})
   ## Produces:
@@ -184,7 +184,7 @@ proc shoDbg*(msg: string, data: JsonNode) =
   ##     }
   ## }
   ## ```
-  if SHO_VERBOSE:
+  if SHO_DEBUG:
     sho(
       msg = msg,
       level = ShoLevel.Debug,

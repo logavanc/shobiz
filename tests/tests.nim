@@ -27,7 +27,7 @@ test "print":
   shoExc(newException(KeyError, "error"), data = data)
 
 test "debug":
-  SHO_VERBOSE = true
+  SHO_DEBUG = true
 
   shoDbg("debug")
   shoDbg("debug", data = data)
@@ -39,7 +39,7 @@ test "debug":
   shoExc(newException(KeyError, "error"), data = data)
 
 test "utc":
-  SHO_VERBOSE = true
+  SHO_DEBUG = true
   SHO_USEUTC = true
 
   shoDbg("debug")
@@ -65,7 +65,7 @@ test "print pretty":
 
 test "debug pretty":
   SHO_PRETTY = true
-  SHO_VERBOSE = true
+  SHO_DEBUG = true
 
   shoDbg("debug")
   shoDbg("debug", data = data)
@@ -78,7 +78,7 @@ test "debug pretty":
 
 test "utc pretty":
   SHO_PRETTY = true
-  SHO_VERBOSE = true
+  SHO_DEBUG = true
   SHO_USEUTC = true
 
   shoDbg("debug")
