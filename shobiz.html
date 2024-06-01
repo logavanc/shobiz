@@ -51,11 +51,11 @@
   <details open>
     <summary><a class="reference reference-toplevel" href="#8" id="58">Vars</a></summary>
     <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#SHO_OUTPUT" title="SHO_OUTPUT = stdout">SHO_OUTPUT</a></li>
+      <li><a class="reference" href="#SHO_DEBUG" title="SHO_DEBUG = false">SHO_DEBUG</a></li>
+<li><a class="reference" href="#SHO_OUTPUT" title="SHO_OUTPUT = stdout">SHO_OUTPUT</a></li>
 <li><a class="reference" href="#SHO_PRETTY" title="SHO_PRETTY = false">SHO_PRETTY</a></li>
 <li><a class="reference" href="#SHO_TIMEFMT" title="SHO_TIMEFMT = &quot;yyyy-MM-dd\'T\'HH:mm:ss\'.\'fffzzz&quot;">SHO_TIMEFMT</a></li>
 <li><a class="reference" href="#SHO_USEUTC" title="SHO_USEUTC = false">SHO_USEUTC</a></li>
-<li><a class="reference" href="#SHO_VERBOSE" title="SHO_VERBOSE = false">SHO_VERBOSE</a></li>
 
     </ul>
   </details>
@@ -93,13 +93,23 @@
 
     <div id="tocRoot"></div>
     
-    <p class="module-desc"><p>Sho is a simple structured console output library, meant to be used with minimal runtime configuration (e.g. <tt class="docutils literal"><span class="pre"><span class="Operator">--</span><span class="Identifier">verbose</span></span></tt>/<tt class="docutils literal"><span class="pre"><span class="Operator">--</span><span class="Identifier">debug</span></span></tt> flags).</p>
-<p>Debug messages are only shown when the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_VERBOSE</span></span></tt> flag is set. The output can be pretty printed by setting the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_PRETTY</span></span></tt> flag for easier reading, but by default, the output is minified single-line JSON which can be easily parsed by other tools (e.g. <tt class="docutils literal"><span class="pre"><span class="Identifier">jq</span></span></tt>) or piped to a file (e.g. <tt class="docutils literal"><span class="pre"><span class="Operator">&gt;</span> <span class="Identifier">file</span><span class="Operator">.</span><span class="Identifier">jsonl</span></span></tt>).</p>
+    <p class="module-desc"><p>Sho is a simple structured console output library, meant to be used with minimal runtime configuration (e.g. <tt class="docutils literal"><span class="pre"><span class="Operator">--</span><span class="Identifier">debug</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Operator">--</span><span class="Identifier">pretty</span></span></tt> flags).</p>
+<p>Debug messages are only shown when the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_DEBUG</span></span></tt> flag is set. The output can be pretty printed by setting the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_PRETTY</span></span></tt> flag for easier reading, but by default, the output is minified single-line JSON which can be easily parsed by other tools (e.g. <tt class="docutils literal"><span class="pre"><span class="Identifier">jq</span></span></tt>) or piped to a file (e.g. <tt class="docutils literal"><span class="pre"><span class="Operator">&gt;</span> <span class="Identifier">file</span><span class="Operator">.</span><span class="Identifier">jsonl</span></span></tt>).</p>
 </p>
     <div class="section" id="8">
   <h1><a class="toc-backref" href="#8">Vars</a></h1>
   <dl class="item">
-    <div id="SHO_OUTPUT">
+    <div id="SHO_DEBUG">
+  <dt><pre><a href="shobiz.html#SHO_DEBUG"><span class="Identifier">SHO_DEBUG</span></a> <span class="Other">=</span> <span class="Identifier">false</span></pre></dt>
+  <dd>
+    
+    Print debug information.
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L21" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L21" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+<div id="SHO_OUTPUT">
   <dt><pre><a href="shobiz.html#SHO_OUTPUT"><span class="Identifier">SHO_OUTPUT</span></a> <span class="Other">=</span> <span class="Identifier">stdout</span></pre></dt>
   <dd>
     
@@ -139,16 +149,6 @@
 
   </dd>
 </div>
-<div id="SHO_VERBOSE">
-  <dt><pre><a href="shobiz.html#SHO_VERBOSE"><span class="Identifier">SHO_VERBOSE</span></a> <span class="Other">=</span> <span class="Identifier">false</span></pre></dt>
-  <dd>
-    
-    Print debug information.
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L21" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L21" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
 
   </dl>
 </div>
@@ -161,10 +161,10 @@
                            <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
-    Show a debug message. This message will only be shown if the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_VERBOSE</span></span></tt> flag is set.
+    Show a debug message. This message will only be shown if the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_DEBUG</span></span></tt> flag is set.
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Identifier">SHO_PRETTY</span> <span class="Operator">=</span> <span class="Identifier">true</span>
-<span class="Identifier">SHO_VERBOSE</span> <span class="Operator">=</span> <span class="Identifier">true</span>
+<span class="Identifier">SHO_DEBUG</span> <span class="Operator">=</span> <span class="Identifier">true</span>
 
 <span class="StringLit">&quot;Detailed message.&quot;</span><span class="Operator">.</span><span class="Identifier">shoDbg</span><span class="Punctuation">(</span><span class="Punctuation">)</span></pre><p>Produces:</p>
 <p><pre class="listing">
@@ -185,12 +185,12 @@
     <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
-    Show a debug message with additional data. This message will only be shown if the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_VERBOSE</span></span></tt> flag is set.
+    Show a debug message with additional data. This message will only be shown if the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_DEBUG</span></span></tt> flag is set.
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Keyword">import</span> <span class="Identifier">json</span>
 
 <span class="Identifier">SHO_PRETTY</span> <span class="Operator">=</span> <span class="Identifier">true</span>
-<span class="Identifier">SHO_VERBOSE</span> <span class="Operator">=</span> <span class="Identifier">true</span>
+<span class="Identifier">SHO_DEBUG</span> <span class="Operator">=</span> <span class="Identifier">true</span>
 
 <span class="StringLit">&quot;Detailed message.&quot;</span><span class="Operator">.</span><span class="Identifier">shoDbg</span><span class="Punctuation">(</span><span class="Operator">%*</span><span class="Punctuation">{</span><span class="StringLit">&quot;key&quot;</span><span class="Punctuation">:</span> <span class="StringLit">&quot;value&quot;</span><span class="Punctuation">}</span><span class="Punctuation">)</span></pre><p>Produces:</p>
 <p><pre class="listing">
@@ -334,7 +334,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-31 05:15:52 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-01 04:55:05 UTC</small>
       </div>
     </div>
   </div>

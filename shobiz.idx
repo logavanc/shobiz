@@ -1,6 +1,6 @@
 nimTitle	shobiz	shobiz.html	module src/shobiz		0
 nim	SHO_PRETTY	shobiz.html#SHO_PRETTY	var SHO_PRETTY		20
-nim	SHO_VERBOSE	shobiz.html#SHO_VERBOSE	var SHO_VERBOSE		21
+nim	SHO_DEBUG	shobiz.html#SHO_DEBUG	var SHO_DEBUG		21
 nim	SHO_OUTPUT	shobiz.html#SHO_OUTPUT	var SHO_OUTPUT		22
 nim	SHO_USEUTC	shobiz.html#SHO_USEUTC	var SHO_USEUTC		25
 nim	SHO_TIMEFMT	shobiz.html#SHO_TIMEFMT	var SHO_TIMEFMT		26
