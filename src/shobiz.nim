@@ -8,7 +8,10 @@
 ## `> file.jsonl`).
 import json
 import options
+import terminal
 import times
+
+import colorize
 
 type
   ShoLevel {.pure.} = enum
@@ -20,6 +23,7 @@ var
   SHO_PRETTY*  = false  ## Pretty print the output.
   SHO_DEBUG*   = false  ## Print debug information.
   SHO_OUTPUT*  = stdout ## Where to write the output.
+  SHO_INDENT*  = 4      ## Indentation level for pretty printing.
 
 var
   SHO_USEUTC*  = false                            ## Use UTC time.
@@ -44,9 +48,13 @@ proc sho(
   node["message"] = %msg
   if data.isSome():
     node["data"] = data.get
-  SHO_OUTPUT.writeLine(
-    if SHO_PRETTY: node.pretty(indent = 4)
-    else: $node)
+  if SHO_PRETTY:
+    if SHO_OUTPUT.isatty():
+      SHO_OUTPUT.writeLine(node.prettyColor(indent = SHO_INDENT))
+    else:
+      SHO_OUTPUT.writeLine(node.pretty(indent = SHO_INDENT))
+  else:
+    SHO_OUTPUT.writeLine($node)
 
 proc shoExc*(err: ref Exception) =
   ## Show an exception message.
