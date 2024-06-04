@@ -1,6 +1,7 @@
-import tables
-import unittest
 import json
+import tables
+import terminal
+import unittest
 
 import shobiz
 
@@ -80,6 +81,7 @@ test "utc pretty":
   SHO_PRETTY = true
   SHO_DEBUG = true
   SHO_USEUTC = true
+  SHO_KEY_COLOR = fgGreen
 
   shoDbg("debug")
   shoDbg("debug", data = data)
