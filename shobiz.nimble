@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.0.0"
+version       = "1.1.0"
 author        = "VanCuren, Logan"
 description   = "Simple structured console messages for Nim applications."
 license       = "MIT"
