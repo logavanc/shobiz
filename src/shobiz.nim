@@ -11,7 +11,13 @@ import options
 import terminal
 import times
 
-import colorize
+import shobiz/colorize
+
+export SHO_BOOL_COLOR
+export SHO_KEY_COLOR
+export SHO_NULL_COLOR
+export SHO_NUMBER_COLOR
+export SHO_STRING_COLOR
 
 type
   ShoLevel {.pure.} = enum

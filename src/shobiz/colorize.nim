@@ -4,11 +4,11 @@ import tables
 import terminal
 
 var
-  SHO_KEY_COLOR* = fgMagenta
-  SHO_STRING_COLOR* = fgCyan
-  SHO_NUMBER_COLOR* = fgGreen
-  SHO_BOOL_COLOR* = fgRed
-  SHO_NULL_COLOR* = fgYellow
+  SHO_BOOL_COLOR*   = fgRed     ## Set the color for boolean values in pretty print.
+  SHO_KEY_COLOR*    = fgMagenta ## Set the color for keys in pretty print.
+  SHO_NULL_COLOR*   = fgYellow  ## Set the color for null values in pretty print.
+  SHO_NUMBER_COLOR* = fgGreen   ## Set the color for numbers in pretty print.
+  SHO_STRING_COLOR* = fgCyan    ## Set the color for strings in pretty print.
 
 # Copied from std/json
 proc indent(s: var string, i: int) =
