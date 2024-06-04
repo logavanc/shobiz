@@ -48,10 +48,14 @@
     </div>
     <ul class="simple simple-toc" id="toc-list">
   <li>
+  <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
+</li>
+<li>
   <details open>
     <summary><a class="reference reference-toplevel" href="#8" id="58">Vars</a></summary>
     <ul class="simple simple-toc-section">
       <li><a class="reference" href="#SHO_DEBUG" title="SHO_DEBUG = false">SHO_DEBUG</a></li>
+<li><a class="reference" href="#SHO_INDENT" title="SHO_INDENT = 4">SHO_INDENT</a></li>
 <li><a class="reference" href="#SHO_OUTPUT" title="SHO_OUTPUT = stdout">SHO_OUTPUT</a></li>
 <li><a class="reference" href="#SHO_PRETTY" title="SHO_PRETTY = false">SHO_PRETTY</a></li>
 <li><a class="reference" href="#SHO_TIMEFMT" title="SHO_TIMEFMT = &quot;yyyy-MM-dd\'T\'HH:mm:ss\'.\'fffzzz&quot;">SHO_TIMEFMT</a></li>
@@ -83,6 +87,9 @@
     </ul>
   </details>
 </li>
+<li>
+  <a class="reference reference-toplevel" href="#19" id="69">Exports</a>
+</li>
 
 </ul>
 
@@ -96,7 +103,13 @@
     <p class="module-desc"><p>Sho is a simple structured console output library, meant to be used with minimal runtime configuration (e.g. <tt class="docutils literal"><span class="pre"><span class="Operator">--</span><span class="Identifier">debug</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Operator">--</span><span class="Identifier">pretty</span></span></tt> flags).</p>
 <p>Debug messages are only shown when the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_DEBUG</span></span></tt> flag is set. The output can be pretty printed by setting the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_PRETTY</span></span></tt> flag for easier reading, but by default, the output is minified single-line JSON which can be easily parsed by other tools (e.g. <tt class="docutils literal"><span class="pre"><span class="Identifier">jq</span></span></tt>) or piped to a file (e.g. <tt class="docutils literal"><span class="pre"><span class="Operator">&gt;</span> <span class="Identifier">file</span><span class="Operator">.</span><span class="Identifier">jsonl</span></span></tt>).</p>
 </p>
-    <div class="section" id="8">
+    <div class="section" id="6">
+  <h1><a class="toc-backref" href="#6">Imports</a></h1>
+  <dl class="item">
+    <a class="reference external" href="shobiz/colorize.html">shobiz/colorize</a>
+  </dl>
+</div>
+<div class="section" id="8">
   <h1><a class="toc-backref" href="#8">Vars</a></h1>
   <dl class="item">
     <div id="SHO_DEBUG">
@@ -104,8 +117,18 @@
   <dd>
     
     Print debug information.
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L21" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L21" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L30" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L30" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+<div id="SHO_INDENT">
+  <dt><pre><a href="shobiz.html#SHO_INDENT"><span class="Identifier">SHO_INDENT</span></a> <span class="Other">=</span> <span class="DecNumber">4</span></pre></dt>
+  <dd>
+    
+    Indentation level for pretty printing.
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L32" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L32" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -114,8 +137,8 @@
   <dd>
     
     Where to write the output.
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L22" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L22" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L31" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L31" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -124,8 +147,8 @@
   <dd>
     
     Pretty print the output.
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L20" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L20" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L29" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L29" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -134,8 +157,8 @@
   <dd>
     
     Time format (default ISO8601).
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L26" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L26" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L36" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L36" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -144,8 +167,8 @@
   <dd>
     
     Use UTC time.
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L25" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L25" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L35" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L35" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -157,7 +180,7 @@
   <dl class="item">
     <div id="shoDbg-procs-all">
   <div id="shoDbg,string">
-  <dt><pre><span class="Keyword">proc</span> <a href="#shoDbg%2Cstring"><span class="Identifier">shoDbg</span></a><span class="Other">(</span><span class="Identifier">msg</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
+  <dt><pre><span class="Keyword">proc</span> <a href="#shoDbg%2Cstring"><span class="Identifier">shoDbg</span></a><span class="Other">(</span><span class="Identifier">msg</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
                            <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
@@ -174,15 +197,15 @@
     &quot;message&quot;: &quot;Detailed message.&quot;
 }</pre></p>
 
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L145" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L145" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L159" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L159" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
 <div id="shoDbg,string,JsonNode">
   <dt><pre><span class="Keyword">proc</span> <a href="#shoDbg%2Cstring%2CJsonNode"><span class="Identifier">shoDbg</span></a><span class="Other">(</span><span class="Identifier">msg</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     Show a debug message with additional data. This message will only be shown if the <tt class="docutils literal"><span class="pre"><span class="Identifier">SHO_DEBUG</span></span></tt> flag is set.
@@ -203,8 +226,8 @@
     }
 }</pre></p>
 
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L166" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L166" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L180" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L180" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -212,8 +235,8 @@
 </div>
 <div id="shoExc-procs-all">
   <div id="shoExc,ref.Exception">
-  <dt><pre><span class="Keyword">proc</span> <a href="#shoExc%2Cref.Exception"><span class="Identifier">shoExc</span></a><span class="Other">(</span><span class="Identifier">err</span><span class="Other">:</span> <span class="Keyword">ref</span> <span class="Identifier">Exception</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
-                                  <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dt><pre><span class="Keyword">proc</span> <a href="#shoExc%2Cref.Exception"><span class="Identifier">shoExc</span></a><span class="Other">(</span><span class="Identifier">err</span><span class="Other">:</span> <span class="Keyword">ref</span> <span class="Identifier">Exception</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span>
+    <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     Show an exception message.
@@ -232,15 +255,15 @@
     &quot;message&quot;: &quot;error&quot;
 }</pre></p>
 
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L51" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L51" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L65" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L65" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
 <div id="shoExc,ref.Exception,JsonNode">
   <dt><pre><span class="Keyword">proc</span> <a href="#shoExc%2Cref.Exception%2CJsonNode"><span class="Identifier">shoExc</span></a><span class="Other">(</span><span class="Identifier">err</span><span class="Other">:</span> <span class="Keyword">ref</span> <span class="Identifier">Exception</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     Show an exception message with additional data.
@@ -264,8 +287,8 @@
     }
 }</pre></p>
 
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L74" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L74" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L88" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L88" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -273,7 +296,7 @@
 </div>
 <div id="shoMsg-procs-all">
   <div id="shoMsg,string">
-  <dt><pre><span class="Keyword">proc</span> <a href="#shoMsg%2Cstring"><span class="Identifier">shoMsg</span></a><span class="Other">(</span><span class="Identifier">msg</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
+  <dt><pre><span class="Keyword">proc</span> <a href="#shoMsg%2Cstring"><span class="Identifier">shoMsg</span></a><span class="Other">(</span><span class="Identifier">msg</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
                            <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
@@ -289,15 +312,15 @@
     &quot;message&quot;: &quot;Hello, World!&quot;
 }</pre></p>
 
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L103" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L103" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L117" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L117" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
 <div id="shoMsg,string,JsonNode">
   <dt><pre><span class="Keyword">proc</span> <a href="#shoMsg%2Cstring%2CJsonNode"><span class="Identifier">shoMsg</span></a><span class="Other">(</span><span class="Identifier">msg</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeFormatParseError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     Show a message with additional data.
@@ -317,14 +340,20 @@
     }
 }</pre></p>
 
-    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L121" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L121" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/logavanc/shobiz/tree/master/src/shobiz.nim#L135" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/logavanc/shobiz/edit/devel/src/shobiz.nim#L135" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
 
 </div>
 
+  </dl>
+</div>
+<div class="section" id="19">
+  <h1><a class="toc-backref" href="#19">Exports</a></h1>
+  <dl class="item">
+    <a href="shobiz/colorize.html#SHO_BOOL_COLOR"><span class="Identifier">SHO_BOOL_COLOR</span></a>, <a href="shobiz/colorize.html#SHO_KEY_COLOR"><span class="Identifier">SHO_KEY_COLOR</span></a>, <a href="shobiz/colorize.html#SHO_NULL_COLOR"><span class="Identifier">SHO_NULL_COLOR</span></a>, <a href="shobiz/colorize.html#SHO_NUMBER_COLOR"><span class="Identifier">SHO_NUMBER_COLOR</span></a>, <a href="shobiz/colorize.html#SHO_STRING_COLOR"><span class="Identifier">SHO_STRING_COLOR</span></a>
   </dl>
 </div>
 
@@ -334,7 +363,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-01 04:55:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-06-04 04:52:01 UTC</small>
       </div>
     </div>
   </div>

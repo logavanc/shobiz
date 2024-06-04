@@ -1,0 +1,7 @@
+nimTitle	colorize	shobiz/colorize.html	module src/shobiz/colorize		0
+nim	SHO_BOOL_COLOR	shobiz/colorize.html#SHO_BOOL_COLOR	var SHO_BOOL_COLOR		7
+nim	SHO_KEY_COLOR	shobiz/colorize.html#SHO_KEY_COLOR	var SHO_KEY_COLOR		8
+nim	SHO_NULL_COLOR	shobiz/colorize.html#SHO_NULL_COLOR	var SHO_NULL_COLOR		9
+nim	SHO_NUMBER_COLOR	shobiz/colorize.html#SHO_NUMBER_COLOR	var SHO_NUMBER_COLOR		10
+nim	SHO_STRING_COLOR	shobiz/colorize.html#SHO_STRING_COLOR	var SHO_STRING_COLOR		11
+nim	prettyColor	shobiz/colorize.html#prettyColor,JsonNode,int	proc prettyColor(node: JsonNode; indent = 2): string		99
